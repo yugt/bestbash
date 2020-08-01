@@ -75,17 +75,10 @@ fi
 alias ls='ls -hF --color=auto'
 alias l='ls -hF --color=auto'
 alias lr='ls -R'                    # recursive ls
-alias ll='ls -alh'
+alias ll='ls -ACFHhlsS'
 alias la='ll -A'
 alias lm='la | less'
 #}}}
 #}}}
 
 
-#alias for activating env1
-#python virtualenv alias
-alias venv='source ~/env1/bin/activate'
-alias notes='vim ~/notes.txt'
-alias speedtest=~/speedtest
-alias utime='sudo ntpdate pool.ntp.org'
-alias sshlogin='ssh -i ~/sshkey/saket.txt saket@cseproj83.cse.iitk.ac.in'
