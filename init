@@ -113,10 +113,7 @@ if ! shopt -oq posix; then
 fi
 
 # set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
-export PATH=$PATH:~/Public/anaconda3/bin/:~/Public/julia-1.0.0/bin/
-export PYTHONPATH="${PYTHONPATH}:~/Public/anaconda3/bin/"
 
 # https://github.com/jaivardhankapoor/bestbash.git
 

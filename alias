@@ -72,12 +72,10 @@ if which get_flash_videos &>/dev/null; then
 fi
 #}}}
 # LS {{{
-alias ls='ls -hF --color=auto'
 alias l='ls -hF --color=auto'
-alias lr='ls -R'                    # recursive ls
+alias la='l -A'
+alias lr='l -R'                    # recursive ls
 alias ll='ls -ACFHhlsS'
-alias la='ll -A'
-alias lm='la | less'
 #}}}
 #}}}
 
