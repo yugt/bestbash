@@ -84,3 +84,19 @@ export HISTFILESIZE=${HISTSIZE} # bash will remember N commands
 export HISTCONTROL=ignoreboth   # ingore duplicates and spaces
 export HISTIGNORE='&:ls:ll:la:cd:exit:clear:history'
 #}}}
+
+# REMOVE DUPLICATE PATHs {{{
+if [ -n "$PATH" ]; then
+  old_PATH=$PATH:; PATH=
+  while [ -n "$old_PATH" ]; do
+    x=${old_PATH%%:*}       # the first remaining entry
+    case $PATH: in
+      *:"$x":*) ;;          # already there
+      *) PATH=$PATH:$x;;    # not there yet
+    esac
+    old_PATH=${old_PATH#*:}
+  done
+  PATH=${PATH#:}
+  unset old_PATH x
+fi
+#}}}
