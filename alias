@@ -19,7 +19,6 @@ alias ..='cd ..'
 alias ....='cd ../..'
 alias ......='cd ../../..'
 alias df='df -h'
-alias diff='colordiff'              # requires colordiff package
 alias du='du -c -h'
 alias free='free -m'                # show sizes in MB
 alias grep='grep --color=auto'
@@ -30,7 +29,6 @@ alias nano='nano -w'
 alias ping='ping -c 5'
 alias c='clear && clear'
 alias .bashrc="vim ~/.bashrc"
-alias exho='echo'
 #}}}
 # PRIVILEGED ACCESS {{{
 if ! $_isroot; then
