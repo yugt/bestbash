@@ -1,13 +1,6 @@
 # ALIAS {{{
 alias freemem='sudo /sbin/sysctl -w vm.drop_caches=3'
-alias enter_matrix='echo -e "\e[32m"; while :; do for i in {1..16}; do r="$(($RANDOM % 2))"; if [[ $(($RANDOM % 5)) == 1 ]]; then if [[ $(($RANDOM % 4)) == 1 ]]; then v+="\e[1m $r   "; else v+="\e[2m $r   "; fi; else v+="     "; fi; done; echo -e "$v"; v=""; done'
-# GIT_OR_HUB {{{
-if which hub &>/dev/null; then
-  alias git=hub
-fi
-#}}}
 # AUTOCOLOR {{{
-alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
@@ -24,11 +17,12 @@ alias free='free -m'                # show sizes in MB
 alias grep='grep --color=auto'
 alias grep='grep --color=tty -d skip'
 alias mkdir='mkdir -p -v'
-alias more='less'
-alias nano='nano -w'
 alias ping='ping -c 5'
 alias c='clear && clear'
 alias .bashrc="vim ~/.bashrc"
+if command -v colordiff &> /dev/null; then
+  alias diff="colordiff"
+fi
 #}}}
 # PRIVILEGED ACCESS {{{
 if ! $_isroot; then
@@ -65,16 +59,23 @@ if $_isarch; then
 fi
 #}}}
 # MULTIMEDIA {{{
-if which get_flash_videos &>/dev/null; then
+if command -v get_flash_videos &>/dev/null; then
   alias gfv='get_flash_videos -r 720p --subtitles'
 fi
 #}}}
 # LS {{{
-alias l='ls -hF --color=auto'
-alias la='l -A'
-alias lr='l -R'                    # recursive ls
-alias ll='ls -ACFHhlsS'
+if command -v exa &>/dev/null; then
+  alias ls="exa -Fh --time-style iso"
+  alias l="ls -Gl --no-user --no-permissions"
+  alias la="l -aR -L 1"
+  alias lr="l -R -L 2"
+  alias ll="ls -alT -L 1"
+else
+  alias ls='ls --color=auto'
+  alias l='ls -hF --color=auto'
+  alias la='l -A'
+  alias lr='l -R'                    # recursive ls
+  alias ll='ls -ACFHhlsS'
+fi
 #}}}
 #}}}
-
-
