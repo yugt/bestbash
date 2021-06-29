@@ -62,6 +62,9 @@ fi
 if command -v get_flash_videos &>/dev/null; then
   alias gfv='get_flash_videos -r 720p --subtitles'
 fi
+if command -v kitty &>/dev/null; then
+  alias icat="kitty +kitten icat"
+fi
 #}}}
 # LS {{{
 if command -v exa &>/dev/null; then
